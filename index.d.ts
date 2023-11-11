@@ -2,6 +2,7 @@ import { Application, Request, Response, NextFunction } from "express";
 import { Pool, PoolConfig, QueryOptions } from "mysql";
 import { Strategy } from "passport-strategy";
 import _bcrypt from "bcrypt";
+import { RequestOptions } from "http";
 
 interface ResponseOptions { id?: string, status?: number, data?: Array<T> | object | string, errors?: Array<T> | string };
 function RequestHandle(req: Request, res: Response, next: NextFunction): any;
@@ -21,6 +22,9 @@ class Util {
 const src = new class CagatayD extends Util {
     /** @example .db({ sql: "SELECT 1=?", values:[1] }).then(...) */
     db(query: string | QueryOptions, values: Array<T>): Promise<{ error: boolean, data: Array<T> }>;
+
+    fetch(uri: string, options?: RequestOptions, no_json?: boolean): Promise<{ success: boolean, response: object } | { success: boolean, error: object }>;
+
     crypto = new class Crypto {
         private module = _bcrypt;
         hash(text: string): Promise<String>;
