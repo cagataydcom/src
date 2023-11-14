@@ -21,7 +21,7 @@ class Util {
 
 const src = new class CagatayD extends Util {
     /** @example .db({ sql: "SELECT 1=?", values:[1] }).then(...) */
-    db(query: string | QueryOptions, values: Array<T>): Promise<{ error: boolean, data: Array<T> }>;
+    db(query: QueryOptions): Promise<{ error: boolean, data: Array<T> }>;
 
     fetch(uri: string, options?: RequestOptions, no_json?: boolean): Promise<{ success: boolean, response: object } | { success: boolean, error: object }>;
 
