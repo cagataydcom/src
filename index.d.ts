@@ -38,14 +38,14 @@ const src = new class CagatayD extends Util {
         permission = RequestHandle;
     }
     passport = new class Passport {
-        cagataydcom: (options: object, verify: Function) => Strategy;
+        cagatayd_auth: (options: object, verify: Function) => Strategy;
         local: (options: object, verify: Function) => Strategy;
     }
     schema = new class Schema {
         user(arg: object): { id: Number, uuid: String, username: String };
     }
     struct = new class Struct {
-        express(app: Application, options?: { passport: boolean }): Application;
+        express(app: Application, options?: { passport: boolean, session_name: string }): Application;
         mysql(config?: PoolConfig): Pool;
     }
 }
