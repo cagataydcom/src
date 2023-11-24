@@ -13,7 +13,7 @@ class Util {
     lang(text: string, values: Array<T> | string | 0, language: "tr"): String;
     log(text: string, values: Array<T> | string | 0, path: string, platform?: "discord" | "mysql" | "web" | 0, type?: "log" | "warn" | "error"): any;
     response(request: request, options?: ResponseOptions | string | number): any;
-
+    hostConfig(__dirname: string): { id: string, devMode: number, hostname: string, hosts: object };
     options = require("../data/system/config.json");
     page_options(page: string): object;
     render(req: Request, page: string, customJson: object): any;
