@@ -45,7 +45,8 @@ const src = new class CagatayD extends Util {
         user(arg: object): { id: Number, uuid: String, username: String };
     }
     struct = new class Struct {
-        express(app: Application, options?: { passport: boolean, session_name: string }): Application;
+        /** @deprecated */
+        express(): Application;
         mysql(config?: PoolConfig): Pool;
     }
 }
