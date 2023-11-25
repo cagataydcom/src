@@ -1,5 +1,5 @@
 {
-    "name": "src",
+    "name": "@cagatayd/src",
     "version": "2.0.0",
     "description": "for Backend",
     "author": {
@@ -11,10 +11,6 @@
     "devDependencies": {
         "bcrypt": "^5.1.1",
         "mysql": "^2.18.1",
-        "node-fetch": "^3.3.2",
-        "passport": "^0.6.0",
-        "passport-local": "^1.0.0",
-        "passport-oauth2": "^1.7.0",
-        "passport-strategy": "^1.0.0"
+        "node-fetch": "^3.3.2"
     }
 }
