@@ -1,6 +1,7 @@
 const lib = _ => require("./lib/" + _);
 const src = new class CagatayD extends require("./lib/util") {
     crypto = lib("crypto");
+    discord = lib("discord");
     Middleware = lib("middleware");
     schema = lib("schema");
     struct = lib("struct");
