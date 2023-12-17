@@ -45,6 +45,18 @@ const src = new class CagatayD extends Util {
         };
         attachment(options: Discord_Attachment): Discord_Attachment;
         modal(options: { title: string, custom_id: string }, components: Array<Dc_Comp_text_input>): { title: string, custom_id: string, components: Array<{ type: 1, components: Dc_Comp_text_input }> };
+
+        language = class {
+            constructor(opt: DiscordLanguageOptions): any;
+
+            getStartsWith(key: string): Object;
+            getOptions(key: string, langs: Object): Object;
+            getBulk(flag: string): object;
+            private path: string;
+            private key_prefix: string;
+            languages: Array<string>;
+        }
+
     }
     Middleware = class Middleware {
         constructor(...arg: Array<T>): any;
@@ -81,6 +93,8 @@ interface Dc_Comp_role_select extends Dc_Comp_text_input { type: 6 }
 interface Dc_Comp_mentionable_select extends Dc_Comp_text_input { type: 7 }
 interface Dc_Comp_channel_select extends Dc_Comp_text_input { type: 8 }
 interface Discord_Attachment { id: string, filename: string, description: string, content_type: string, size: number, url: string, proxy_url: string, height: number, width: number, ephemeral: boolean, duration_secs: number, waveform: string, flags: number }
-
+interface DiscordLanguageOptions {
+    key_prefix: string
+}
 
 export = src;
