@@ -2,6 +2,7 @@ import { Application, Request, Response, NextFunction } from "express";
 import { Pool, PoolConfig, QueryOptions } from "mysql";
 import _bcrypt from "bcrypt";
 import { RequestOptions } from "http";
+import { Permissions } from "@discordjs/core";
 
 interface ResponseOptions { id?: string, status?: number, data?: Array<T> | object | string, errors?: Array<T> | string };
 function RequestHandle(req: Request, res: Response, next: NextFunction): any;
@@ -56,7 +57,9 @@ const src = new class CagatayD extends Util {
             private key_prefix: string;
             languages: Array<string>;
         }
-
+        convertIDtoUnix(id: string): string;
+        checkPermission(permission: string, flag: bigint): boolean;
+        permissions(permission: string): Array<string>;
     }
     Middleware = class Middleware {
         constructor(...arg: Array<T>): any;
@@ -84,7 +87,7 @@ interface Discord_Message {
     attachments: Array<Discord_Attachment>
 }
 
-interface Discord_Embed { title: string, type: "rich" | "image" | "video" | "gifv" | "article" | "link", description: string, url: string, timestamp: Date, color: "", footer: { text: string, icon_url: string, proxy_icon_url: string }, image: { url: string, proxy_url: string, height: "", width: "" }, thumbnail: { url: string, proxy_url: string, height: "", width: "" }, video: { url: string, proxy_url: string, height: "", width: "" }, provider: { name: string, url: string }, author: { text: string, icon_url: string, proxy_icon_url: string }, fields: Array<{ name: string, value: string, inline: boolean }> };
+interface Discord_Embed { title: string, type: "rich" | "image" | "video" | "gifv" | "article" | "link", description: string, url: string, timestamp: Date, color: "", footer: { text: string, icon_url: string, proxy_icon_url: string }, image: { url: string, proxy_url: string, height: "", width: "" }, thumbnail: { url: string, proxy_url: string, height: "", width: "" }, video: { url: string, proxy_url: string, height: "", width: "" }, provider: { name: string, url: string }, author: { name: string, url: string, icon_url: string, proxy_icon_url: string }, fields: Array<{ name: string, value: string, inline: boolean }> };
 interface Dc_Comp_button { type: 2, style: 1 | 2 | 3 | 4 | 5, label: string, emoji: string, custom_id: string, url: string, disabled: boolean };
 interface Dc_Comp_string_select { type: 3, custom_id: string, options: Array<{ label: string, value: string, description: string, emoji: { id: string, name: string }, disabled: false }>, placeholder: string, default_value: Array<{ id: string, type: "user" | "role" | "channel " }>, min_values: number, max_values: number, disabled: boolean };
 interface Dc_Comp_text_input { type: 4, custom_id: string, style: 1 | 2, label: string, min_length: number, max_length: number, required: boolean, value: string, placeholder: string };
