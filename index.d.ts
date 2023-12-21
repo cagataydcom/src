@@ -2,7 +2,7 @@ import { Application, Request, Response, NextFunction } from "express";
 import { Pool, PoolConfig, QueryOptions } from "mysql";
 import _bcrypt from "bcrypt";
 import { RequestOptions } from "http";
-import { Permissions } from "@discordjs/core";
+import { Transporter } from "nodemailer";
 
 interface ResponseOptions { id?: string, status?: number, data?: Array<T> | object | string, errors?: Array<T> | string };
 function RequestHandle(req: Request, res: Response, next: NextFunction): any;
@@ -24,6 +24,7 @@ const src = new class CagatayD extends Util {
     db(query: QueryOptions): Promise<{ error: boolean, data: Array<T> }>;
 
     fetch(uri: string, options?: RequestOptions, no_json?: boolean): Promise<{ success: boolean, response: object } | { success: boolean, error: object }>;
+    mail: Transporter;
 
     crypto = new class Crypto {
         private module = _bcrypt;
