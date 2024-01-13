@@ -52,11 +52,14 @@ const src = new class CagatayD extends Util {
             constructor(opt: DiscordLanguageOptions): any;
 
             getStartsWith(key: string): Object;
-            getOptions(key: string, langs: Object): Object;
+            getOptions(key: string, nokey: boolean, desc_name: string, disable_desc: boolean, langs: Object): Object;
             getBulk(flag: string): object;
             private path: string;
             private key_prefix: string;
             languages: Array<string>;
+            com = {
+                user(required: boolean): Object;
+            }
         }
         convertIDtoUnix(id: string): string;
         checkPermission(permission: string, flag: bigint): boolean;
